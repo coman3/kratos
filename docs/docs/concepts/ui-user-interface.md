@@ -18,7 +18,7 @@ At present, there is no Open Source AUI for ORY Kratos.
 
 ## Self-service User Interface (SSUI)
 
-The SSUI shows screens such as "login", "Registration", "Update your profile",
+The SSUI renders forms such as "Login", "Registration", "Update your profile",
 "Recover access to your account", and others. The following provides more
 reference for SSUI at
 [github.com/ory/kratos-selfservice-ui-node](https://github.com/ory/kratos-selfservice-ui-node).
@@ -30,9 +30,8 @@ no complex authentication mechanism required and no need to worry about possible
 attack vectors such as CSRF or Session Attacks since ORY Kratos provides the
 preventive measures built in.
 
-Chapter [Self-Service Flows](../self-service/flows/index) contains further
-information on APIs and flows related to the SSUI, and build self service
-applications.
+Chapter [Self-Service Flows](../self-service) contains further information on
+APIs and flows related to the SSUI, and build self service applications.
 
 ## Messages
 
@@ -73,7 +72,7 @@ The message ID is a 7-digit number (`xyyzzzz`) where
   - `01` for login messages (e.g. `1010000`)
   - `02` for logout messages (e.g. `1020000`)
   - `03` for multi-factor authentication messages (e.g. `1030000`)
-  - `04` for registration messages (e.g. `1030000`)
+  - `04` for registration messages (e.g. `1040000`)
   - `05` for settings messages (e.g. `1050000`)
   - `06` for account recovery messages (e.g. `1060000`)
   - `07` for email/phone verification messages (e.g. `1070000`)

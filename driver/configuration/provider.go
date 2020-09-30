@@ -65,6 +65,7 @@ type Provider interface {
 	SecretsDefault() [][]byte
 	SecretsSession() [][]byte
 	SessionLifespan() time.Duration
+	SessionPersistentCookie() bool
 	SessionSameSiteMode() http.SameSite
 	SessionDomain() string
 	SessionPath() string
@@ -77,7 +78,7 @@ type Provider interface {
 	SelfServiceFlowLoginReturnTo(strategy string) *url.URL
 	SelfServiceFlowLoginRequestLifespan() time.Duration
 
-	SelfServiceFlowRegisterUI() *url.URL
+	SelfServiceFlowRegistrationUI() *url.URL
 	SelfServiceFlowRegistrationBeforeHooks() []SelfServiceHook
 	SelfServiceFlowRegistrationAfterHooks(strategy string) []SelfServiceHook
 	SelfServiceFlowRegistrationReturnTo(strategy string) *url.URL
@@ -87,11 +88,11 @@ type Provider interface {
 	SelfServiceFlowSettingsPrivilegedSessionMaxAge() time.Duration
 	SelfServiceFlowSettingsAfterHooks(strategy string) []SelfServiceHook
 	SelfServiceFlowSettingsReturnTo(strategy string, defaultReturnTo *url.URL) *url.URL
-	SelfServiceFlowSettingsRequestLifespan() time.Duration
+	SelfServiceFlowSettingsFlowLifespan() time.Duration
 
 	SelfServiceFlowVerificationEnabled() bool
 	SelfServiceFlowVerificationUI() *url.URL
-	SelfServiceFlowVerificationReturnTo() *url.URL
+	SelfServiceFlowVerificationReturnTo(defaultReturnTo *url.URL) *url.URL
 	SelfServiceFlowVerificationRequestLifespan() time.Duration
 
 	SelfServiceFlowRecoveryEnabled() bool
@@ -114,4 +115,6 @@ type Provider interface {
 	TracingServiceName() string
 	TracingProvider() string
 	TracingJaegerConfig() *tracing.JaegerConfig
+
+	ConfigVersion() string
 }
